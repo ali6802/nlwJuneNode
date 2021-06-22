@@ -10,7 +10,7 @@ npm run typeorm migration:create -- -n Nome_da_migration
 npm run typeorm entity:create -- -n User
 
 ## typeorm criando migrations. terminal output
-
+```
 $ yarn typeorm migration:run
 yarn run v1.22.10
 $ ts-node-dev ./node_modules/typeorm/cli.js migration:run
@@ -26,3 +26,22 @@ query: INSERT INTO "migrations"("timestamp", "name") VALUES (?, ?) -- PARAMETERS
 Migration CreateUsers1624326828534 has been executed successfully.
 query: COMMIT
 Done in 3.70s.
+```
+## Services 01:10
+- server -> ( ) -> SERVICE (Regras, validação, verificação) antes de enviar a requisição ao banco de dados -> Repositories -> Banco de dados
+
+#### Regras
+- Cadastro de Usuario
+   - Não é permitido cadastrar mais de um usuário com o mesmo e-mail
+   - Não é permitido cadastrar usuário sem email
+
+- Cadastro de Tag
+   - Não é permitido cadastrar mais de uma tag com o mesmo nome
+   - Não é permitido cadastrar tag sem nome
+   - Não é permitido o cadastro por usuários que não sejam administradores
+
+- Cadastro de elogios
+   - Não é permitido um usuário cadastrar um elogio para si
+   - Não é permitido cadastrar elogios para usuários inválidos
+   - Usuários precisam estar autenticados na aplicação.
+
