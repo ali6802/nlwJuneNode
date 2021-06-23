@@ -45,3 +45,11 @@ Done in 3.70s.
    - Não é permitido cadastrar elogios para usuários inválidos
    - Usuários precisam estar autenticados na aplicação.
 
+   ## Live Dani 22/06
+   Extensões VSCode
+
+   Import Cost - biblioteca import
+   Bracker Pair Colorizer
+   Code Spell Checker
+   Code snap
+
