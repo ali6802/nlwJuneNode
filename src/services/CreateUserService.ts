@@ -10,7 +10,7 @@ interface IUserRequest {
 }
 
 class CreateUserService {
-  async execute({ name, email, admin, password }: IUserRequest) {
+  async execute({ name, email, admin = false, password }: IUserRequest) {
     //creates a new instance of respository. new UsersRepository is not valid
     const usersRepository = getCustomRepository(UsersRepositories);
 
