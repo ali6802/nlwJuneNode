@@ -5,6 +5,7 @@ import {
    CreateDateColumn,
    UpdateDateColumn,
  } from "typeorm";
+ import { Exclude } from "class-transformer";
  import { v4 as uuid } from "uuid";
  //referencia class User a tabela users no db
  @Entity("users")
@@ -21,7 +22,7 @@ import {
  
    @Column()
    admin: boolean;
-
+   @Exclude()
    @Column()
    password: string;
  

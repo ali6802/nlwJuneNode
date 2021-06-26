@@ -33,7 +33,7 @@ router.post("/login", authenticateUserController.handle);
 router.post("/compliments", ensureAuthenticated, createComplimentController.handle);
 router.get("/users/compliments/send", ensureAuthenticated,listUserSendComplimentsController.handle);
 router.get("/users/compliments/receive", ensureAuthenticated,listUserReceiveComplimentsController.handle);
-router.get("/tags", listTagsController.handle);
-router.get("/users", listUsersController.handle);
+router.get("/tags", ensureAuthenticated ,listTagsController.handle);
+router.get("/users", ensureAuthenticated ,listUsersController.handle);
 
 export { router };
