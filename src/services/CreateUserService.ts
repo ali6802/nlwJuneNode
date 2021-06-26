@@ -13,8 +13,7 @@ class CreateUserService {
   async execute({ name, email, admin = false, password }: IUserRequest) {
     //creates a new instance of respository. new UsersRepository is not valid
     const usersRepository = getCustomRepository(UsersRepositories);
-
-    console.log("Email", email);
+    
    //verifica se ja há um usuário cadastrado com o email
     if (!email) {
       throw new Error("Email invalid");

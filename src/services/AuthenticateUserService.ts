@@ -28,7 +28,7 @@ class AuthenticateUserService {
       // Gerar token
       const token = sign({
          email: user.email,
-      },"44ac425cf56332e0756a8483a2bcb864",
+      },process.env.HASH_TOKEN,
       {
          subject: user.id,
          expiresIn: "1d"

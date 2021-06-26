@@ -1,9 +1,14 @@
 //[40:00] Explicação sobre o middleware usuario admin
 import { Request, Response, NextFunction } from "express";
+import { getCustomRepository } from "typeorm";
+import { UsersRepositories } from "../respositories/UsersRepositories";
 
-export function ensureAdmin( request: Request, response: Response, next: NextFunction) {
-   //verificar se usuario admin
-   const admin = true;// provisorio enquanto JWT não é implantado
+export async function ensureAdmin( request: Request, response: Response, next: NextFunction) {
+   const { user_id } = request;
+   
+   const usersRepositories = getCustomRepository(UsersRepositories);
+
+   const { admin } = await usersRepositories.findOne(user_id);
 
    if(admin) {
       return next();
