@@ -1,4 +1,6 @@
 import {Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn} from "typeorm";
+import { Expose } from "class-transformer";
+
 //Tag entity também pode ser criado pela CLI
 import { v4 as uuid } from "uuid";
 
@@ -16,6 +18,11 @@ class Tag {
 
    @UpdateDateColumn()
    updated_at: Date;
+
+   @Expose({name: "nameCustom"})
+   nameCustom(): string {
+      return `#${this.name}`;
+   }
 
    constructor() {
       if(!this.id) {
